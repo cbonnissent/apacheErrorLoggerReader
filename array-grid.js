@@ -13,6 +13,10 @@ Ext.onReady(function () {
         fields: [
             {
             name: 'date'},
+            {
+            name: 'level'},
+            {
+            name: 'client'},
         {
             name: 'message'},
         {
@@ -32,6 +36,18 @@ Ext.onReady(function () {
             width: 50,
             sortable: true,
             dataIndex: 'date'},
+        {
+            id: 'level',
+            header: 'Level',
+            width: 50,
+            sortable: true,
+            dataIndex: 'level'},
+        {
+            id: 'client',
+            header: 'Client',
+            width: 50,
+            sortable: true,
+            dataIndex: 'client'},
         {
             id: 'message',
             header: 'Message',
@@ -59,9 +75,12 @@ Ext.onReady(function () {
         var defaultData = {
             'message': contentObject.content,
             'date': contentObject.date,
+            'level': contentObject.level,
+            'client': contentObject.client,
             'referer': contentObject.referer
         };
         var currentRecord = new store.recordType(defaultData, ++recId);
+        
         store.add(currentRecord);
     });
 
