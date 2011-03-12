@@ -11,7 +11,7 @@ var regAnalyze = new RegExp('\\[([^\\]]*)\\] \\[([^\\]]*)\\] \\[([^\\]]*)\\] (.*
 var regReferer = new RegExp(', referer: (.*)');
 var currSize = 0;
 var currentlyReading = false;
-var reads = new Array();
+var reads = [];
 
 String.prototype.ltrim = function() {
     return this.replace(/^\n+/,"");
@@ -65,7 +65,7 @@ function openAndAnalyzeFile(err, file) {
 
 fs.watchFile('/var/log/apache2/error.log', function (curr, prev) {
     var prevSize =0;
-    if (currSize == 0) {
+    if (currSize === 0) {
         prevSize = prev.size;
     }
     else {

@@ -80,7 +80,6 @@ Ext.onReady(function () {
             'referer': contentObject.referer
         };
         var currentRecord = new store.recordType(defaultData, ++recId);
-        
         store.add(currentRecord);
     });
 
